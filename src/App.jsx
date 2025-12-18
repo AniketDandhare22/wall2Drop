@@ -2,10 +2,13 @@ import { useEffect, useState } from "react";
 import Card from "./component/card.jsx";
 import axios from 'axios'
 import backG from "../backG.png";
+import Light from "../light.png";
 import logo from "./logo.png";
 
 function App() {
   const [userData,setUserData] =useState([]);
+  const [Mode,setMode] =useState(false);
+  const [Theme,setTheme] =useState(false);
   const [index,setIndex] =useState(1);
   const [loading, setLoading] = useState(false);
   const getData = async () => {
@@ -27,12 +30,12 @@ function App() {
   },[index])
 
   return (
-    <div className="h-screen w-full  text-white">
+    <div className={`h-screen w-full ${Theme?'text-white':'text-black'}`}>
       
       {/* Page Wrapper */}
       <div className="flex h-full flex-col">
       <img
-        src={backG}
+        src={Theme?backG:Light}
         alt="background"
         className="absolute inset-0 w-full h-full object-cover -z-10"
       />
@@ -42,13 +45,33 @@ function App() {
           <div className="flex  w-[20%] ">
             <div className="flex justify-center ml-4">
               <img src={logo} 
-                className="w-14 h-8 fliter invert"
+                className={`w-14 h-8 ${Theme?'fliter invert':''}`}
               />
             </div>
             <div className="text-2xl font-extrabold">Wall2Drop</div>
           </div>
-          <div className="w-[60%] flex justify-center "></div>
-          <div className="w-[20%] flex justify-center ">div3</div>
+          <div className="w-[60%] flex justify-center">
+            <p className="px-20 opacity-60 hover:opacity-100 active:scale-95 text-lg">home</p>
+            <p className="px-20 opacity-60 hover:opacity-100 active:scale-95 text-lg">About</p>
+            <p className="px-20 opacity-60 hover:opacity-100 active:scale-95 text-lg">Categories</p>
+            <p className="px-20 opacity-60 hover:opacity-100 active:scale-95 text-lg">Credits</p>
+          </div>
+          <div className="w-[20%] flex justify-center ">
+              <div className="flex justify-center p-4 rounded-xl">
+                <button className="glass-effect px-8 p-1 h-10 rounded-lg mx-1 text-lg  hover:scale-103 active:scale-97 " 
+                    onClick={()=>{
+                      if(Mode==false){setMode(true);}
+                      else setMode(false);
+                    }}
+                >{Mode?"Landscape":"Portrait"}</button>
+                <button className="glass-effect px-2 p-1 h-10  rounded-3xl mx-2 text-lg  hover:scale-103 active:scale-97 "
+                onClick={()=>{
+                      if(Theme==false){setTheme(true);}
+                      else setTheme(false);
+                    }}>{Theme?"🌙":"☀️"}</button>
+              </div>  
+
+          </div>
         </div>
 
         {/* Content */}
@@ -66,7 +89,7 @@ function App() {
             {/* Cards */}
             <div className="flex-1 overflow-auto m-2 pr-2 custom-scroll mb-1">
               {/* Cards grid ONLY */}
-              <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-2">
+              <div className={`grid gap-2 ${Mode ? "grid-cols-[repeat(auto-fit,minmax(500px,1fr))]" : "grid-cols-[repeat(auto-fit,minmax(300px,1fr))]"} transition-all duration-300 ease-in-out`}>
                 {loading ? (
                   <div className="col-span-full flex justify-center items-center text-xl h-200">
                         <div role="status">
