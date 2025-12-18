@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Card from "./component/card.jsx";
 import axios from 'axios'
 import backG from "../backG.png";
+import logo from "./logo.png";
 
 function App() {
   const [userData,setUserData] =useState([]);
@@ -29,7 +30,7 @@ function App() {
     <div className="h-screen w-full  text-white">
       
       {/* Page Wrapper */}
-      <div className="flex h-full flex-col bg-['./backG.png']">
+      <div className="flex h-full flex-col">
       <img
         src={backG}
         alt="background"
@@ -38,7 +39,16 @@ function App() {
 
         {/* Navbar */}
         <div className="glass-effect h-16 rounded-b-lg flex items-center justify-center text-2xl shrink-0">
-          Navbar
+          <div className="flex  w-[20%] ">
+            <div className="flex justify-center ml-4">
+              <img src={logo} 
+                className="w-14 h-8 fliter invert"
+              />
+            </div>
+            <div className="text-2xl font-extrabold">Wall2Drop</div>
+          </div>
+          <div className="w-[60%] flex justify-center "></div>
+          <div className="w-[20%] flex justify-center ">div3</div>
         </div>
 
         {/* Content */}
