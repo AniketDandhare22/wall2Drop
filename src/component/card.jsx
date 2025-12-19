@@ -1,19 +1,23 @@
 import { useState } from "react";
 
-function Card({ elem }){
+function Card({ elem ,onPreview }){
   const [liked, setLiked] = useState(false);
 
   return (
     <>
         <div className="group glass-effect w-full h-100 overflow-hidden rounded-2xl p-2 hover:p-1 hover:scale-101 transition-transform duration-300 ease-in-out m-1 ">
             <div className={`cover w-full h-full opacity-83 hover:opacity-100  rounded-2xl  justify-center transition-transform duration-300 ease-in-out  flex flex-col bg-cover`} style={{
-          backgroundImage: `url(${elem.download_url})`,
-        }}>
+              backgroundImage: `url(${elem.download_url})`,
+            }}
+              onClick={onPreview}
+            >
                 <div className=" h-[75%]"></div>
                 <div className="mx-5 text-gray-300 mb-2 text-xs group-hover:font-bold  ">{elem.author}</div>
                 <div className="flex flex-row w-full justify-between px-4">
                   <button className="glass-effect rounded-xl  text-white font-light px-9 py-1 active:scale-95 active:font-bold text-lg hover:scale-105 
-                      transition-transform duration-200 ">Download</button>
+                      transition-transform duration-200 "
+                      onClick={() => window.open(elem.download_url, "_blank")}
+                      >Download</button>
                   <button
                     onClick={() => setLiked(!liked)}
                     className="
