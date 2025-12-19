@@ -14,7 +14,7 @@ function App() {
   const [userData,setUserData] =useState([]);
   const [Mode,setMode] =useState(false);
   const [value,setValue] =useState(1);
-  const [Theme,setTheme] =useState(false);
+  const [Theme,setTheme] =useState(true);
   const [index,setIndex] =useState(1);
   const [loading, setLoading] = useState(false);
   const getData = async () => {
