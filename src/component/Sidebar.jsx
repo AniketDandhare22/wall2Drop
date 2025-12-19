@@ -6,11 +6,11 @@ function Sidebar({ Theme }) {
   const [isOpen, setIsOpen] = useState(true); // Sidebar expanded/collapsed
 
   const navItems = [
-    { name: "Home", icon: <FaHome /> },
-    { name: "About", icon: <FaInfoCircle /> },
-    { name: "Categories", icon: <FaTh /> },
-    { name: "Favorites", icon: <FaStar /> },
-    { name: "Settings", icon: <FaCog /> },
+    { name: "Home", icon: <FaHome /> } ,
+    { name: "About", icon: <FaInfoCircle /> ,link:'https://aniketdandhareportfolio.netlify.app/', external:true},
+    { name: "Categories", icon: <FaTh />, onClick: () => alert("Upcoming Feature")},
+    { name: "Favorites", icon: <FaStar /> ,onClick: () => alert("Upcoming Feature")},
+    { name: "Settings", icon: <FaCog />,onClick: () => prompt("Rate our site (x/5)") },
   ];
 
   return (
@@ -20,6 +20,7 @@ function Sidebar({ Theme }) {
         transition-width duration-300 ease-in-out
         ${isOpen ? "w-64" : "w-16"} 
         overflow-hidden
+        rounded-lg
         relative
       `}
     >
@@ -41,6 +42,8 @@ function Sidebar({ Theme }) {
       <nav className="flex flex-col gap-2 mt-4">
         {navItems.map((item, index) => (
           <button
+            href={item.link}
+            onClick={item.onClick}
             key={index}
             className={`
               flex items-center gap-4 px-4 py-2 

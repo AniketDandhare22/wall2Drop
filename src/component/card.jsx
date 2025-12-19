@@ -6,7 +6,7 @@ function Card({ elem ,onPreview }){
   return (
     <>
         <div className="group glass-effect w-full h-100 overflow-hidden rounded-2xl p-2 hover:p-1 hover:scale-101 transition-transform duration-300 ease-in-out m-1 ">
-            <div className={`cover w-full h-full opacity-83 hover:opacity-100  rounded-2xl  justify-center transition-transform duration-300 ease-in-out  flex flex-col bg-cover`} style={{
+            <div className={`cover w-full h-full opacity-83 hover:opacity-100  rounded-2xl  justify-center transition-transform duration-300 ease-in-out  flex flex-col bg-cover bg-center bg-no-repeat`} style={{
               backgroundImage: `url(${elem.download_url})`,
             }}
               onClick={onPreview}

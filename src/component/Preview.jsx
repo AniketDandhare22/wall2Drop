@@ -1,13 +1,13 @@
 import { useState } from "react";
 
 function Preview({ image ,onClose,index }) {
-  if (!image) return null;
   const [liked, setLiked] = useState(false);
+  if (!image) return null;
 
   return (
     
     <div className="glass-effect h-full p-2 m-2 rounded-2xl">
-      <div className= {`w-full h-full bg-cover rounded-2xl flex flex-col`} style={{backgroundImage: `url(${image.download_url})`}}>
+      <div className= {`w-full h-full bg-cover rounded-2xl flex flex-col bg-center bg-no-repeat`} style={{backgroundImage: `url(${image.download_url})`}}>
           <div className="w-full p-2 justify-between flex flex-row">
             <button className="glass-effect px-4 rounded-4xl text-lg font-bold active:scale-95 hover:text-red-400 hover:border-none" onClick={() => onClose()}>X</button>
             <p className=" glass-effect px-4 rounded-xl border-none hover:scale-103">{`${image.width} X ${image.height}`}</p>
