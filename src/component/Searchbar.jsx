@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const Input = ({setValue}) => {
-    const [temp,setTemp]=useState();
+    const [temp,setTemp]=useState(1);
   return (
     <StyledWrapper>
       <form
