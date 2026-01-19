@@ -52,17 +52,14 @@ function App() {
                 className={`w-14 h-8 ${Theme?'fliter invert':''}`}
               />
             </div>
-            <div className="text-2xl font-extrabold">Wall2Drop</div>
+            <div className="text-2xl font-extrabold" onClick={() => {
+              setSelectedImage(null);
+              setIndex(1);
+            }}>Wall2Drop</div>
           </div>
           <div className="w-[60%] flex justify-center">
-            <p className="px-12 opacity-60 hover:opacity-100 active:scale-95 text-lg" onClick={() => {
-                                                                                        setSelectedImage(null);
-                                                                                        setIndex(1);
-                                                                                      }}
-            >Home</p>
-            <p className="px-12 opacity-60 hover:opacity-100 active:scale-95 text-lg" onClick={() => alert("Upcoming Feature! Coming Soon")}>Categories</p>
             <Search setValue={setIndex}/>
-            </div>
+          </div>
           <div className="w-[20%] flex justify-center ">
               <div className="flex justify-center p-4 rounded-xl">
                 <button className="glass-effect px-8 p-1 h-10 rounded-lg mx-1 text-lg  hover:scale-103 active:scale-97 " 

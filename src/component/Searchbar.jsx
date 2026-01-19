@@ -6,7 +6,7 @@ const Input = ({setValue}) => {
   return (
     <StyledWrapper>
       <form
-        className="form"
+        className="form w-full"
         onSubmit={(e) => {
           e.preventDefault();
           setValue(Number(temp));
@@ -58,7 +58,7 @@ const StyledWrapper = styled.div`
     display: flex;
     gap: 0.5rem;
     align-items: center;
-    width: var(--width-of-input);
+    width: 30rem;
     position: relative;
     isolation: isolate;
   }
