@@ -3,7 +3,7 @@ import { FaHome, FaInfoCircle, FaTh, FaStar, FaCog, FaBars } from "react-icons/f
 import logo from "../logo.png";
 
 function Sidebar({ Theme }) {
-  const [isOpen, setIsOpen] = useState(true); // Sidebar expanded/collapsed
+  const [isOpen, setIsOpen] = useState(false); // Sidebar expanded/collapsed
 
   const navItems = [
     { name: "Home", icon: <FaHome /> } ,
@@ -33,13 +33,13 @@ function Sidebar({ Theme }) {
       </button>
 
       {/* Logo */}
-      <div className={`flex items-center gap-2 px-4 py-6 transition-opacity duration-300 ${isOpen ? "opacity-100" : "opacity-0"}`}>
+      <div className={`flex items-center gap-2 px-4 py-3 transition-opacity duration-300 ${isOpen ? "opacity-100" : "opacity-0"}`}>
         <img src={logo} alt="Logo" className={`w-10 h-6 ${Theme ? "filter invert" : ""}`} />
-        <span className="text-xl font-bold">Wall2Drop</span>
+        <span className="text-2xl font-bold">Menu</span>
       </div>
 
       {/* Navigation */}
-      <nav className="flex flex-col gap-2 mt-4">
+      <nav className="flex flex-col gap-2 mt-4 text-xl">
         {navItems.map((item, index) => (
           <button
             href={item.link}
@@ -48,7 +48,7 @@ function Sidebar({ Theme }) {
             className={`
               flex items-center gap-4 px-4 py-2 
               hover:bg-white/20 transition-colors duration-200
-              w-full
+              rounded-full m-1 w-[95%]
             `}
           >
             <span className="text-lg">{item.icon}</span>

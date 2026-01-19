@@ -1,8 +1,8 @@
 @import "tailwindcss";
 /* styles/glass.css */
 .glass-effect {
-    @apply border border-white/30 shadow-[0_4px_30px_rgba(0,0,0,0.1)] 
-           backdrop-blur-[7.1px] bg-white/0;
+    @apply border border-white/0 shadow-[0_4px_30px_rgba(0,0,0,0.1)] 
+           backdrop-blur-[7.1px] bg-white/3;
     backdrop-filter: blur(7.1px); /* Safari */
   }
 
